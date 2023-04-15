@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
 const UsersModel = require('./models/Users');
+require("dotenv").config();
 
 app.use(cors());
 app.use(express.json());
@@ -108,6 +109,6 @@ app.get("/", async (req, res) => {
     res.send("Hello, World");
 });
 
-app.listen(3001, () => {
+app.listen(process.env.PORT || 3001, () => {
     console.log("You are connected!");
 });
